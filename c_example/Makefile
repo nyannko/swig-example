@@ -1,3 +1,4 @@
+# C
 _example.so : example.o example_wrap.o
 	gcc -shared example.o example_wrap.o -o _example.so -lpython2.7
 
@@ -11,7 +12,8 @@ example_wrap.c example.py : example.i example.h
 	swig -python example.i
 
 clean:
-	rm -f *.o *.so example_wrap.* example.py*
+	rm -f *.o *.so example_wrap.* example.py* *swp
+	rm -rf __pycache__
 
 test:
 	/usr/bin/python test.py
